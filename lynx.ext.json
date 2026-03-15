@@ -1,0 +1,17 @@
+{
+  "platforms": {
+    "android": {
+      "packageName": "com.nanofuxion.tamerlinking",
+      "moduleClassNames": ["com.nanofuxion.tamerlinking.LinkingModule"],
+      "sourceDir": "android",
+      "activityPatches": {
+        "onCreate": "com.nanofuxion.tamerlinking.LinkingModule.setInitialUrl(intent?.data?.toString())",
+        "onNewIntent": "com.nanofuxion.tamerlinking.LinkingModule.onUrlReceived(intent?.data?.toString())"
+      }
+    },
+    "ios": {
+      "podspecPath": "ios/tamerlinking",
+      "moduleClassNames": ["LinkingModule"]
+    }
+  }
+}
