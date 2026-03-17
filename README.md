@@ -5,7 +5,7 @@ Deep linking and URL creation for Lynx.
 ## Installation
 
 ```bash
-npm install tamer-linking
+npm install @tamer4lynx/tamer-linking
 ```
 
 Add to your app's dependencies and run `t4l link`.
@@ -20,7 +20,7 @@ import {
   removeEventListener,
   type ParsedURL,
   type URLListener,
-} from 'tamer-linking'
+} from '@tamer4lynx/tamer-linking'
 
 // Create deep link URL
 const url = createURL('auth/callback', {
