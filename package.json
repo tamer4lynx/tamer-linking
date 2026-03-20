@@ -1,6 +1,6 @@
 {
   "name": "@tamer4lynx/tamer-linking",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "publishConfig": { "access": "public", "tag": "prerelease" },
   "type": "module",
   "description": "Deep linking and URL creation for Lynx.",

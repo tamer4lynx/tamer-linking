@@ -1,7 +1,6 @@
 import type { ParsedURL, URLListener } from './linking.types.js'
 
 declare const lynx: { getJSModule(id: string): { addListener(e: string, fn: (ev: { payload?: string }) => void): void; removeListener?(e: string, fn: (ev: { payload?: string }) => void): void } }
-declare const NativeModules: { LinkingModule?: { createURL(path: string, optionsJson: string): string; getInitialURL(callback: (url: string | null) => void): void } }
 
 let urlSubscription: { remove?: () => void } | null = null
 
