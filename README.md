@@ -50,6 +50,10 @@ subscription.remove()
 
 **Types:** `ParsedURL`, `URLListener`
 
+## Android OAuth (`tamerdevapp://`)
+
+When this package is autolinked, **`t4l link android`** merges a default deep link for scheme **`tamerdevapp`** into `AndroidManifest.xml` (inside `.ProjectActivity`, between `<!-- GENERATED DEEP LINKS START/END -->`). That matches the default `makeRedirectUri()` / `tamer-auth` OAuth callback. You can add or override schemes via `android.deepLinks` in **`tamer.config.json`** (see [tamer-plugin](https://tamer4lynx.github.io/packages/core/tamer-plugin.md) / host config).
+
 ## Platform
 
 Uses **lynx.ext.json**. Run `t4l link` after adding to your app.
