@@ -1,6 +1,6 @@
 {
   "name": "@tamer4lynx/tamer-linking",
-  "version": "0.0.4",
+  "version": "0.0.3",
   "publishConfig": { "access": "public", "tag": "prerelease" },
   "type": "module",
   "description": "Deep linking and URL creation for Lynx.",
@@ -18,7 +18,11 @@
     "build": "tsc",
     "prepare": "tsc"
   },
+  "peerDependencies": {
+    "@lynx-js/react": ">=0.100.0"
+  },
   "devDependencies": {
+    "@lynx-js/react": "^0.114.2",
     "typescript": "~5.8.0"
   },
   "engines": {
