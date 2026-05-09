@@ -18,6 +18,17 @@ export function createURL(path = '', options: { scheme?: string; path?: string; 
   return mod.createURL(path, JSON.stringify(opts))
 }
 
+export function openURL(url: string): Promise<boolean> {
+  return new Promise((resolve) => {
+    const mod = NativeModules?.LinkingModule
+    if (!mod?.openURL) {
+      resolve(false)
+      return
+    }
+    mod.openURL(url, (ok: boolean) => resolve(!!ok))
+  })
+}
+
 export function getInitialURL(): Promise<string | null> {
   return new Promise((resolve) => {
     const mod = NativeModules?.LinkingModule

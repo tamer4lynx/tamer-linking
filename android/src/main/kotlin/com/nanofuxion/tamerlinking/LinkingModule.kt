@@ -63,6 +63,20 @@ class LinkingModule(context: Context) : LynxModule(context) {
     }
 
     @LynxMethod
+    fun openURL(url: String, callback: Callback) {
+        try {
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url)).apply {
+                addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+            }
+            mContext.startActivity(intent)
+            callback.invoke(true)
+        } catch (e: Exception) {
+            Log.e(TAG, "openURL error: ${e.message}")
+            callback.invoke(false)
+        }
+    }
+
+    @LynxMethod
     fun getInitialURL(callback: Callback) {
         val url = pendingInitialUrl
         if (url != null) {

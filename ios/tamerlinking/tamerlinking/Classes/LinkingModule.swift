@@ -1,4 +1,5 @@
 import Foundation
+import UIKit
 import Lynx
 
 @objcMembers
@@ -9,6 +10,7 @@ public final class LinkingModule: NSObject, LynxModule {
     @objc public static var methodLookup: [String: String] {
         [
             "createURL": NSStringFromSelector(#selector(createURL(_:optionsJson:))),
+            "openURL": NSStringFromSelector(#selector(openURL(_:callback:))),
             "getInitialURL": NSStringFromSelector(#selector(getInitialURL(_:)))
         ]
     }
@@ -47,6 +49,16 @@ public final class LinkingModule: NSObject, LynxModule {
             return "\(base)?\(pairs.joined(separator: "&"))"
         }
         return base
+    }
+
+    @objc func openURL(_ urlString: String, callback: @escaping (Bool) -> Void) {
+        guard let url = URL(string: urlString) else {
+            callback(false)
+            return
+        }
+        DispatchQueue.main.async {
+            UIApplication.shared.open(url, options: [:]) { ok in callback(ok) }
+        }
     }
 
     @objc func getInitialURL(_ callback: @escaping (String) -> Void) {
